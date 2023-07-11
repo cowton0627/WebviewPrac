@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SecondViewController.swift
 //  WebviewPrac
 //
 //  Created by Chun-Li Cheng on 2022/8/16.
@@ -8,8 +8,8 @@
 import UIKit
 import WebKit
 
-// For Home Assistant WebView
-class ViewController: UIViewController {
+class SecondViewController: UIViewController {
+//    @IBOutlet weak var webView: WKWebView!
     
     private var swipeLeftGestureRecognizer: UISwipeGestureRecognizer!
     private var swipeRightGestureRecognizer: UISwipeGestureRecognizer!
@@ -31,23 +31,20 @@ class ViewController: UIViewController {
         return webView
     }()
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    }
 
-    @IBAction func buttonTapped(_ sender: UIButton) {
+        
         view.addSubview(self.webView)
 
         if let url = URL(string: "http://59.124.84.49:1234") {
             let request = URLRequest(url: url)
-
             webView.load(request)
         }
+        
     }
-    
-
-
     
     @objc private func handleSwipeLeft() {
         if webView.canGoForward {
@@ -69,31 +66,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    
+
+
 }
-
-extension ViewController: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-//        let cssString = "::-webkit-scrollbar { width: 0 !important }"
-//        let jsString = "var style = document.createElement('style'); style.innerHTML = '\(cssString)'; document.head.appendChild(style);"
-//        webView.evaluateJavaScript(jsString, completionHandler: nil)
-        
-//        webView.evaluateJavaScript("document.body.style.backgroundColor = '#D3D3D3';", completionHandler: { (result, error) in
-//            if let error = error {
-//                print("Error: \(error.localizedDescription)")
-//            } else {
-//                print("Success!")
-//            }
-//        })
-        
-//        webView.evaluateJavaScript("var newElement = document.createElement('div');newElement.innerHTML = 'Hello, world!'; document.body.appendChild(newElement);", completionHandler: { (result, error) in
-//            if let error = error {
-//                print("Error: \(error.localizedDescription)")
-//            } else {
-//                print("Success!")
-//            }
-//        })
-
-    }
-}
-
