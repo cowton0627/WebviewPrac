@@ -47,7 +47,10 @@ class SecondViewController: UIViewController {
         webView.addGestureRecognizer(swipeLeftGestureRecognizer)
         webView.addGestureRecognizer(swipeRightGestureRecognizer)
 
-
+//        if let url = URL(string: "http://59.124.85.79:10001") {
+//            let request = URLRequest(url: url)
+//            webView.load(request)
+//        }
         if let url = URL(string: "https://www.apple.com/") {
             let request = URLRequest(url: url)
 
